@@ -20,7 +20,7 @@ public class PlayerDAO {
 		String sql = "select * from player";
 		
 		return jdbc.query(sql, new BeanPropertyRowMapper<>(PlayerDTO.class));
-
+	}
 
 	public int insert(PlayerDTO dto) {
 		String sql = "insert into player (name, backnumber, position) values (?, ?, ?)";
