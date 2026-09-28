@@ -14,7 +14,12 @@ public class PlayerDAO {
 
 	@Autowired
 	private JdbcTemplate jdbc;
+	
+	public int update(PlayerDTO dto) {
+		String sql = "update player(backnumber, position) set(?,?)";
+		return jdbc.update(sql, dto.getBacknumber(), dto.getPosition());
 
+  }
 	public List<PlayerDTO> selectAll() throws Exception {
 
 		String sql = "select * from player";
