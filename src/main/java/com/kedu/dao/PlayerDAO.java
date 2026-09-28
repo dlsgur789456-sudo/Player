@@ -21,5 +21,14 @@ public class PlayerDAO {
 		
 		return jdbc.query(sql, new BeanPropertyRowMapper<>(PlayerDTO.class));
 
+
+	public int insert(PlayerDTO dto) {
+		String sql = "insert into player (name, backnumber, position) values (?, ?, ?)";
+		return jdbc.update(sql, 
+				dto.getName(), 
+				dto.getBacknumber(), 
+				dto.getPosition()
+				);
+
 	}
 }
