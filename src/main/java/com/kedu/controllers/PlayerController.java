@@ -10,15 +10,16 @@ import com.kedu.dto.PlayerDTO;
 
 @Controller
 @RequestMapping("/player")
-
-import org.springframework.stereotype.Controller;
-
-@Controller
 public class PlayerController {
 
 	@Autowired
 	PlayerDAO dao;
 	
+	@RequestMapping("delete")
+	public String delete(String name) {
+		dao.delete(name);
+		return "redirect:/player/list";
+	}
 	@RequestMapping("/update")
 	public String update(PlayerDTO dto) throws Exception {
 		dao.update(dto);

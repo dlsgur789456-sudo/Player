@@ -35,5 +35,11 @@ public class PlayerDAO {
 				dto.getPosition()
 				);
 
+	
+	public int delete(String name) {
+		String sql = "delete from player where name = ?";
+		return jdbc.update(sql, name);
+	}
+		
 	}
 }
