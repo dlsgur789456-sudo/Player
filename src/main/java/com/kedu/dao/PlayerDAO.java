@@ -10,4 +10,10 @@ public class PlayerDAO {
 	@Autowired
 	private JdbcTemplate jdbc;
 
+	
+	public int delete(String name) {
+		String sql = "delete from player where name = ?";
+		return jdbc.update(sql, name);
+	}
+		
 }
